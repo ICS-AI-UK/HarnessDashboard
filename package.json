@@ -1,0 +1,13 @@
+{
+  "name": "harness-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Project dashboard for harness engineering projects",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.1.0"
+  }
+}

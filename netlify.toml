@@ -1,0 +1,19 @@
+[build]
+  # The front-end is plain static files; there is nothing to compile, but the
+  # function's dependencies still need installing, so no `command` is set here
+  # rather than an empty one (an empty command can skip the build step).
+  publish = "public"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  # data.json ships with the function so a brand new site starts with this data.
+  included_files = ["data.json", "lib/**"]
+
+# data.js declares `path = "/api/data"` itself; this redirect is a belt-and-braces
+# fallback for older Netlify builds that ignore the in-function route.
+[[redirects]]
+  from = "/api/data"
+  to = "/.netlify/functions/data"
+  status = 200
+  force = true

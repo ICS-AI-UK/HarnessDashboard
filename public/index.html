@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Harness Engineering Project Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>📊</text></svg>" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Harness Engineering - Project Dashboard</h1>
+        <p class="subtitle">Current status of projects and projects on the roadmap.</p>
+      </div>
+      <div class="topbar-actions">
+        <span id="saveState" class="save-state" aria-live="polite"></span>
+        <button id="addBtn" class="btn btn-primary" type="button">+ Add project</button>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="inProgressHeading">
+        <div class="section-head">
+          <h2 id="inProgressHeading">In progress</h2>
+          <span id="inProgressCount" class="count"></span>
+        </div>
+        <div id="inProgress" class="card-grid"></div>
+        <p id="inProgressEmpty" class="empty" hidden>
+          No projects in progress. Add one, or mark an existing project as in progress.
+        </p>
+      </section>
+
+      <section aria-labelledby="otherHeading">
+        <div class="section-head">
+          <h2 id="otherHeading">Other projects</h2>
+          <span id="otherCount" class="count"></span>
+        </div>
+        <div class="table-wrap" id="otherWrap">
+          <table id="otherTable">
+            <thead>
+              <tr>
+                <th class="col-drag"><span class="sr-only">Order</span></th>
+                <th>Project</th>
+                <th>Owner</th>
+                <th>Operator</th>
+                <th>Specification Docs</th>
+                <th>Documents</th>
+                <th>Stage</th>
+                <th>Waves</th>
+                <th>Updated</th>
+                <th class="col-actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="otherBody"></tbody>
+          </table>
+        </div>
+        <p id="otherEmpty" class="empty" hidden>No other projects yet.</p>
+      </section>
+
+      <section aria-labelledby="todoHeading">
+        <div class="section-head">
+          <h2 id="todoHeading">To do items</h2>
+          <span id="todoCount" class="count"></span>
+          <span class="spacer"></span>
+          <button id="addTodoBtn" class="btn" type="button">+ Add to do item</button>
+        </div>
+        <div class="table-wrap" id="todoWrap">
+          <table id="todoTable">
+            <thead>
+              <tr>
+                <th class="col-drag"><span class="sr-only">Order</span></th>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Assigned to</th>
+                <th>State</th>
+                <th>Updated</th>
+                <th class="col-actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="todoBody"></tbody>
+          </table>
+        </div>
+        <p id="todoEmpty" class="empty" hidden>No to do items yet.</p>
+      </section>
+
+      <section aria-labelledby="linksHeading">
+        <div class="section-head">
+          <h2 id="linksHeading">Links</h2>
+          <span id="linkCount" class="count"></span>
+          <span class="spacer"></span>
+          <button id="addLinkBtn" class="btn" type="button">+ Add link</button>
+        </div>
+        <ul id="linkList" class="link-list"></ul>
+        <p id="linkEmpty" class="empty" hidden>No links yet.</p>
+      </section>
+
+      <section aria-labelledby="notesHeading">
+        <div class="section-head">
+          <h2 id="notesHeading">Notes</h2>
+          <span id="noteCount" class="count"></span>
+          <span class="spacer"></span>
+          <button id="addNoteBtn" class="btn" type="button">+ Add note</button>
+        </div>
+        <ul id="noteList" class="note-list"></ul>
+        <p id="noteEmpty" class="empty" hidden>No notes yet.</p>
+      </section>
+    </main>
+
+    <dialog id="editDialog">
+      <form id="editForm" method="dialog">
+        <h2 id="dialogTitle">Add project</h2>
+
+        <label>
+          Project name
+          <input name="name" type="text" required maxlength="120" autocomplete="off" />
+        </label>
+
+        <div class="row">
+          <label>
+            Client
+            <input name="client" type="text" maxlength="120" autocomplete="off" />
+          </label>
+          <label>
+            Owner
+            <input name="owner" type="text" maxlength="120" autocomplete="off" />
+          </label>
+          <label>
+            Operator
+            <input name="operator" type="text" maxlength="120" autocomplete="off" />
+          </label>
+        </div>
+
+        <label>
+          Documents link
+          <input name="documents" type="text" maxlength="2000" autocomplete="off" placeholder="https://" />
+        </label>
+
+        <fieldset class="docs-fieldset">
+          <legend>Specification documents</legend>
+          <div id="docsGrid" class="docs-grid"></div>
+        </fieldset>
+
+        <div class="row">
+          <label>
+            Status
+            <select name="status">
+              <option value="in-progress">In progress</option>
+              <option value="other">Other / not started</option>
+            </select>
+          </label>
+          <label>
+            Stage
+            <select name="stage" id="stageSelect"></select>
+          </label>
+        </div>
+
+        <div class="row">
+          <label>
+            Waves complete
+            <input name="wavesComplete" type="number" min="0" step="1" value="0" />
+          </label>
+          <label>
+            Waves total
+            <input name="wavesTotal" type="number" min="0" step="1" value="0" />
+          </label>
+        </div>
+
+        <label>
+          Notes
+          <textarea name="notes" rows="3" maxlength="1000"></textarea>
+        </label>
+
+        <p id="formError" class="form-error" hidden></p>
+
+        <div class="dialog-actions">
+          <button type="button" id="deleteBtn" class="btn btn-danger" hidden>Delete</button>
+          <span class="spacer"></span>
+          <button type="button" id="cancelBtn" class="btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="todoDialog">
+      <form id="todoForm" method="dialog">
+        <h2 id="todoDialogTitle">Add to do item</h2>
+
+        <label>
+          Name
+          <input name="name" type="text" required maxlength="200" autocomplete="off" />
+        </label>
+
+        <label>
+          Description
+          <textarea name="description" rows="3" maxlength="2000"></textarea>
+        </label>
+
+        <div class="row">
+          <label>
+            Assigned to
+            <input name="assignedTo" type="text" maxlength="120" autocomplete="off" />
+          </label>
+          <label>
+            State
+            <select name="state">
+              <option value="not-started">Not started</option>
+              <option value="in-progress">In progress</option>
+              <option value="complete">Complete</option>
+            </select>
+          </label>
+        </div>
+
+        <p id="todoFormError" class="form-error" hidden></p>
+
+        <div class="dialog-actions">
+          <button type="button" id="todoDeleteBtn" class="btn btn-danger" hidden>Delete</button>
+          <span class="spacer"></span>
+          <button type="button" id="todoCancelBtn" class="btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="linkDialog">
+      <form id="linkForm" method="dialog">
+        <h2 id="linkDialogTitle">Add link</h2>
+
+        <label>
+          Label
+          <input name="label" type="text" required maxlength="200" autocomplete="off" />
+        </label>
+
+        <label>
+          URL
+          <input name="url" type="text" required maxlength="2000" autocomplete="off" placeholder="https://" />
+        </label>
+
+        <label>
+          Description
+          <input name="description" type="text" maxlength="500" autocomplete="off" />
+        </label>
+
+        <p id="linkFormError" class="form-error" hidden></p>
+
+        <div class="dialog-actions">
+          <button type="button" id="linkDeleteBtn" class="btn btn-danger" hidden>Remove</button>
+          <span class="spacer"></span>
+          <button type="button" id="linkCancelBtn" class="btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="noteDialog">
+      <form id="noteForm" method="dialog">
+        <h2 id="noteDialogTitle">Add note</h2>
+
+        <label>
+          Title
+          <input name="title" type="text" required maxlength="200" autocomplete="off" />
+        </label>
+
+        <label>
+          Note
+          <textarea name="body" rows="8" maxlength="10000"></textarea>
+        </label>
+
+        <p id="noteFormError" class="form-error" hidden></p>
+
+        <div class="dialog-actions">
+          <button type="button" id="noteDeleteBtn" class="btn btn-danger" hidden>Delete</button>
+          <span class="spacer"></span>
+          <button type="button" id="noteCancelBtn" class="btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>

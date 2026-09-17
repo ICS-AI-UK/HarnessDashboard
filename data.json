@@ -1,0 +1,240 @@
+{
+  "stages": [
+    "Not started",
+    "Discovery",
+    "Design",
+    "Build",
+    "Test",
+    "Deploy",
+    "Live"
+  ],
+  "projects": [
+    {
+      "id": "p_sample_1",
+      "name": "SMART LGR Workbench",
+      "client": "",
+      "owner": "Sipo Ojo",
+      "operator": "",
+      "documents": "",
+      "docs": {
+        "research": "complete",
+        "sme": "complete",
+        "functional": "complete",
+        "technical": "complete",
+        "buildPlan": "complete"
+      },
+      "status": "in-progress",
+      "stage": "Build",
+      "wavesTotal": 10,
+      "wavesComplete": 4,
+      "notes": "Note: Currently moving code to GitHub and getting working on ICS Atoms account",
+      "updatedAt": "2026-09-17T11:57:03.277Z"
+    },
+    {
+      "id": "p_mu3vez0v_c0xigk",
+      "name": "SMART AI Transformation Workbench",
+      "client": "",
+      "owner": "",
+      "operator": "",
+      "documents": "",
+      "docs": {
+        "research": "not-started",
+        "sme": "not-started",
+        "functional": "not-started",
+        "technical": "not-started",
+        "buildPlan": "not-started"
+      },
+      "status": "other",
+      "stage": "Discovery",
+      "wavesTotal": 0,
+      "wavesComplete": 0,
+      "notes": "",
+      "updatedAt": "2026-09-16T09:00:45.387Z"
+    },
+    {
+      "id": "p_mu3tp7zb_4kn1wi",
+      "name": "SMART Harness",
+      "client": "",
+      "owner": "Aadam",
+      "operator": "",
+      "documents": "",
+      "docs": {
+        "research": "complete",
+        "sme": "complete",
+        "functional": "complete",
+        "technical": "complete",
+        "buildPlan": "complete"
+      },
+      "status": "in-progress",
+      "stage": "Build",
+      "wavesTotal": 13,
+      "wavesComplete": 5,
+      "notes": "Also being used to test pipeline & deployment",
+      "updatedAt": "2026-09-17T07:46:30.996Z"
+    },
+    {
+      "id": "p_mu3vj8iv_6qcfpc",
+      "name": "SMART Notes",
+      "client": "",
+      "owner": "",
+      "operator": "",
+      "documents": "",
+      "docs": {
+        "research": "not-started",
+        "sme": "not-started",
+        "functional": "not-started",
+        "technical": "not-started",
+        "buildPlan": "not-started"
+      },
+      "status": "other",
+      "stage": "Discovery",
+      "wavesTotal": 0,
+      "wavesComplete": 0,
+      "notes": "",
+      "updatedAt": "2026-09-17T07:36:33.951Z"
+    },
+    {
+      "id": "p_mu3u21fz_oq4vkf",
+      "name": "SMART Agentic Studio",
+      "client": "",
+      "owner": "",
+      "operator": "",
+      "documents": "https://dev.azure.com/ICS-AI/_git/Harness?path=%2Ffiles%2FHarness%20Operating%20Manual%20v0.6.docx&version=GBmain&_a=contents",
+      "docs": {
+        "research": "in-progress",
+        "sme": "not-started",
+        "functional": "not-started",
+        "technical": "not-started",
+        "buildPlan": "not-started"
+      },
+      "status": "in-progress",
+      "stage": "Discovery",
+      "wavesTotal": 0,
+      "wavesComplete": 0,
+      "notes": "Information gathering ahead of specification creation.\nJay has provided some information.",
+      "updatedAt": "2026-09-17T08:40:05.499Z"
+    },
+    {
+      "id": "p_sample_2",
+      "name": "SMART Staff Copilot",
+      "client": "",
+      "owner": "",
+      "operator": "",
+      "documents": "",
+      "docs": {
+        "research": "not-started",
+        "sme": "not-started",
+        "functional": "not-started",
+        "technical": "not-started",
+        "buildPlan": "not-started"
+      },
+      "status": "other",
+      "stage": "Discovery",
+      "wavesTotal": 0,
+      "wavesComplete": 0,
+      "notes": "",
+      "updatedAt": "2026-09-16T08:17:15.638Z"
+    },
+    {
+      "id": "p_mu3tuwic_cggr6s",
+      "name": "SMART Debt Dashboard",
+      "client": "",
+      "owner": "",
+      "operator": "",
+      "documents": "",
+      "docs": {
+        "research": "not-started",
+        "sme": "not-started",
+        "functional": "not-started",
+        "technical": "not-started",
+        "buildPlan": "not-started"
+      },
+      "status": "other",
+      "stage": "Discovery",
+      "wavesTotal": 0,
+      "wavesComplete": 0,
+      "notes": "",
+      "updatedAt": "2026-09-16T08:17:09.391Z"
+    },
+    {
+      "id": "p_mu3u6fj2_aocwj4",
+      "name": "SMART Websites",
+      "client": "",
+      "owner": "",
+      "operator": "",
+      "documents": "",
+      "docs": {
+        "research": "not-started",
+        "sme": "not-started",
+        "functional": "not-started",
+        "technical": "not-started",
+        "buildPlan": "not-started"
+      },
+      "status": "other",
+      "stage": "Discovery",
+      "wavesTotal": 0,
+      "wavesComplete": 0,
+      "notes": "",
+      "updatedAt": "2026-09-16T08:26:07.257Z"
+    }
+  ],
+  "todos": [
+    {
+      "id": "t_mu3u56x6_co9v8w",
+      "name": "Move LGR Workbench code to GitHub",
+      "description": "",
+      "assignedTo": "Sipo",
+      "state": "in-progress",
+      "updatedAt": "2026-09-16T08:25:09.446Z"
+    },
+    {
+      "id": "t_mu3u9c87_7czhke",
+      "name": "Get Azure resources created for SMART Harness",
+      "description": "Aadam needs to define what resources are needed, then Lee to request their creation. THis will be testing deployment from GitHub to Azure",
+      "assignedTo": "Aadam, DevOps",
+      "state": "in-progress",
+      "updatedAt": "2026-09-16T08:28:34.040Z"
+    },
+    {
+      "id": "t_mu597pmn_bg4ado",
+      "name": "Harness Project Framework",
+      "description": "",
+      "assignedTo": "Lee, Olly, Delivery",
+      "state": "in-progress",
+      "updatedAt": "2026-09-17T08:15:01.232Z"
+    },
+    {
+      "id": "t_mu598n80_t5yn6b",
+      "name": "Investigate Atoms alternatives (for when it has issues)",
+      "description": "",
+      "assignedTo": "Lee",
+      "state": "in-progress",
+      "updatedAt": "2026-09-17T08:15:30.954Z"
+    },
+    {
+      "id": "t_mu599dxi_nsaib4",
+      "name": "Setup call with Atoms",
+      "description": "They've responded with a calendly invite",
+      "assignedTo": "Lee",
+      "state": "not-started",
+      "updatedAt": "2026-09-17T08:16:08.717Z"
+    }
+  ],
+  "links": [
+    {
+      "id": "l_mu3u409m_l1jpow",
+      "label": "LGR Workbench Demo",
+      "url": "https://lgr-workbench-demo.azurewebsites.net/",
+      "description": "",
+      "updatedAt": "2026-09-16T08:24:14.171Z"
+    },
+    {
+      "id": "l_mu58ws1a_swan3t",
+      "label": "Harness Operator Manual",
+      "url": "https://dev.azure.com/ICS-AI/_git/Harness?path=%2Ffiles%2FHarness%20Operating%20Manual%20v0.6.docx&version=GBmain&_a=contents",
+      "description": "",
+      "updatedAt": "2026-09-17T08:06:17.320Z"
+    }
+  ],
+  "notes": []
+}
