@@ -4,3 +4,6 @@ data.json.tmp
 
 # Local editor/tooling config
 .claude/
+
+# Written by `netlify dev`
+deno.lock

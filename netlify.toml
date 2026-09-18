@@ -4,20 +4,12 @@
   # rather than an empty one (an empty command can skip the build step).
   publish = "public"
 
-[build.environment]
-  # @netlify/blobs v11 needs a modern Node; don't inherit an old site default.
-  NODE_VERSION = "22"
-
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
   # data.json ships with the function so a brand new site starts with this data.
   included_files = ["data.json", "lib/**"]
 
-# data.js declares `path = "/api/data"` itself; this redirect is a belt-and-braces
-# fallback for older Netlify builds that ignore the in-function route.
-[[redirects]]
-  from = "/api/data"
-  to = "/.netlify/functions/data"
-  status = 200
-  force = true
+# No redirect for /api/data: data.js declares `path = "/api/data"` itself, and
+# doing so REPLACES the default /.netlify/functions/data endpoint rather than
+# adding to it. A redirect pointing there would 404 in production.
