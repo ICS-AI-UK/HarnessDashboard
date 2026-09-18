@@ -180,20 +180,12 @@
   ],
   "todos": [
     {
-      "id": "t_mu3u56x6_co9v8w",
-      "name": "Move LGR Workbench code to GitHub",
-      "description": "",
-      "assignedTo": "Sipo",
-      "state": "in-progress",
-      "updatedAt": "2026-09-16T08:25:09.446Z"
-    },
-    {
       "id": "t_mu3u9c87_7czhke",
       "name": "Get Azure resources created for SMART Harness",
-      "description": "Aadam needs to define what resources are needed, then Lee to request their creation. THis will be testing deployment from GitHub to Azure",
+      "description": "Aadam has defined what resources are needed. Lee to request their creation. This will be testing deployment from GitHub to Azure",
       "assignedTo": "Aadam, DevOps",
       "state": "in-progress",
-      "updatedAt": "2026-09-16T08:28:34.040Z"
+      "updatedAt": "2026-09-18T07:58:29.845Z"
     },
     {
       "id": "t_mu597pmn_bg4ado",
@@ -218,6 +210,22 @@
       "assignedTo": "Lee",
       "state": "not-started",
       "updatedAt": "2026-09-17T08:16:08.717Z"
+    },
+    {
+      "id": "t_mu3u56x6_co9v8w",
+      "name": "Move LGR Workbench code to GitHub",
+      "description": "",
+      "assignedTo": "Sipo",
+      "state": "complete",
+      "updatedAt": "2026-09-18T07:58:00.861Z"
+    },
+    {
+      "id": "t_mu6o5yq7_mkvasn",
+      "name": "Develop",
+      "description": "Put together rought timeline\nStart with requirements - Get collaborative sign off\nSpecification - Get collaborative sign off\nVibe Build with AI - Test prototype and improve",
+      "assignedTo": "",
+      "state": "not-started",
+      "updatedAt": "2026-09-18T08:01:06.314Z"
     }
   ],
   "links": [
